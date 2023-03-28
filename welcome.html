@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>welcome</title>
+		<link rel="stylesheet" href="./sources/js/layui/css/layui.css">
+		<script src="./sources/js/layui/layui.js"></script>
+		<script src="./sources/js/echarts.js"></script>
+	</head>
+	<body bgcolor="#10aeb5">
+		<div>
+			<h1 align="center">首页</h1>
+			<div>
+			<span id="line" style="width: 600px; height: 300px;left: 10px;"></span>
+			<span id="pie" style="width: 600px; height: 300px;left: 630px;top: 35px;position: absolute;"></span></div>
+			<div>
+				<h2 align="center">每日疫情速报</h2>
+				
+				<!--<img src="./sources/img/yi.png" width="100%"></div>-->
+			
+			<script>
+				var pie_chart=echarts.init(document.getElementById("pie"));
+				var option = {
+				  title: {
+				    text: '',
+				    left: 'center'
+				  },
+				  tooltip: {
+				    trigger: 'item'
+				  },
+				  series: [
+				    {
+				      name: 'covid-19',
+				      type: 'pie',
+				      radius: '50%',
+				      data: [
+				        { value: 1020408, name: '现有确诊' },
+				        { value: 15642, name: '累计死亡' },
+				        { value: 195, name: '境外输入' },
+				        { value: 52798, name: '现有无症状' },
+						{ value: 286143, name: '累计治愈' }
+				      ],
+				      emphasis: {
+				        itemStyle: {
+				          shadowBlur: 10,
+				          shadowOffsetX: 0,
+				          shadowColor: 'rgba(0, 0, 0, 0.5)'
+				        }
+				      }
+				    }
+				  ]
+				};
+				pie_chart.setOption(option)
+			</script>
+			<script>
+				var line_chart=echarts.init(document.getElementById('line'))
+				option = {
+					title: {
+					  text: '新增趋势',
+					  left: 'center'
+					},
+					tooltip: {
+					  trigger: 'item'
+					},
+				  xAxis: {
+				    type: 'category',
+				    data: ['2021.12','2022.1', '2022.2', '2022.3', '2022.4', '2022.5' ]
+				  },
+				  yAxis: {
+				    type: 'value'
+				  },
+				  series: [
+				    {
+				      data: [3186, 2360, 1527, 38527, 64813, 7042],
+				      type: 'line',
+				      smooth: true
+				    }
+				  ]
+				};
+				line_chart.setOption(option)
+			</script>
+			<h3>疫情就是命令，防控重于泰山，坚持就是胜利！</h4>
+			<span class="layui-breadcrumb">
+				<cite>友情链接：</cite>
+				<a href="https://www.sdust.edu.cn/"><cite>山东科技大学官网</cite></a>
+				<a href="http://www.sdcdc.cn/"><cite>疾病预防控制中心</cite></a>
+				<a href="https://a2j1a3.smartapps.cn/pages/index/index"><cite>出行防疫政策查询</cite></a>
+			</span>
+		</div>
+	</body>
+</html>
